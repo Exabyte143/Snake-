@@ -1,22 +1,32 @@
 #include <SFML/Graphics.hpp>
+#include <Snake/Player.hpp>
+
+/* Globals */
+int WINDOW_SIZE = 540;
+int SQUARE_SIZE = 30;
+sf::RenderWindow Window(sf::VideoMode(WINDOW_SIZE, WINDOW_SIZE), "Snake");
+
+static Snake::Player player;
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
-
-    while (window.isOpen())
+    while (Window.isOpen())
     {
         sf::Event event;
-        while (window.pollEvent(event))
+        while (Window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
-                window.close();
+            {
+                Window.close();
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
+            {
+                printf("W has been pressed\n");
+            }
         }
 
-        window.clear();
-        window.draw(shape);
-        window.display();
+        Window.clear();
+        player.Draw();
+        Window.display();
     }
 
     return 0;
