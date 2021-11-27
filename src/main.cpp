@@ -1,11 +1,15 @@
 #include <SFML/Graphics.hpp>
 #include <Snake/Player.hpp>
 
+/* Defined in Player.cpp */
+extern std::string GDirection;
+
 /* Globals */
 int WINDOW_SIZE = 540;
 int SQUARE_SIZE = 30;
 sf::RenderWindow Window(sf::VideoMode(WINDOW_SIZE, WINDOW_SIZE), "Snake");
 
+/* Variables */
 static Snake::Player player;
 int main()
 {
@@ -18,11 +22,25 @@ int main()
             {
                 Window.close();
             }
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) && player.GetDirection() != "DOWN")
             {
-                printf("W has been pressed\n");
+                GDirection = "UP";
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) && player.GetDirection() != "RIGHT")
+            {
+                GDirection = "LEFT";
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S) && player.GetDirection() != "UP")
+            {
+                GDirection = "DOWN";
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) && player.GetDirection() != "LEFT")
+            {
+                GDirection = "RIGHT";
             }
         }
+
+        player.Move();
 
         Window.clear();
         player.Draw();

@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <Snake/SnakeSegment.hpp>
 
+/* Main.cpp Definition */
 extern int SQUARE_SIZE;
 
 Snake::SnakeSegment::SnakeSegment(sf::Vector2f Position)
