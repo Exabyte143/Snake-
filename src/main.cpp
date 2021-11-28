@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <Snake/Player.hpp>
+#include <Snake/Food.hpp>
 
 /* Defined in Player.cpp */
 extern std::string GDirection;
@@ -8,9 +9,8 @@ extern std::string GDirection;
 int WINDOW_SIZE = 540;
 int SQUARE_SIZE = 30;
 sf::RenderWindow Window(sf::VideoMode(WINDOW_SIZE, WINDOW_SIZE), "Snake");
+Snake::Player player;
 
-/* Variables */
-static Snake::Player player;
 int main()
 {
     while (Window.isOpen())
@@ -30,7 +30,7 @@ int main()
             {
                 GDirection = "LEFT";
             }
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S) && player.GetDirection() != "UP")
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S) && player.GetDirection() != "UP" && player.GetDirection() != "N/A")
             {
                 GDirection = "DOWN";
             }
@@ -41,9 +41,18 @@ int main()
         }
 
         player.Move();
-
         Window.clear();
+
+        bool Collision = player.CheckCollision();
+
+        if (Collision)
+        {
+            return 0;
+        }
+
+        /* DRAW OBJECTS */
         player.Draw();
+        Snake::Food::Spawn();
         Window.display();
     }
 

@@ -12,8 +12,9 @@ namespace Snake
         Player();
         void Draw();
         void Move();
-        void IncreaseScore();
         std::string GetDirection();
+        std::vector<Snake::SnakeSegment> GetBody();
+        bool CheckCollision();
 
     private:
         int Score = 0;
@@ -21,5 +22,7 @@ namespace Snake
         std::vector<Snake::SnakeSegment> Body;
         std::map<std::string, sf::Vector2f> DirectionToVector2f;
         std::string Direction = "N/A";
+
+        void IncreaseScore();
     };
 }

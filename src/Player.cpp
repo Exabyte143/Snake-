@@ -7,6 +7,10 @@ extern sf::RenderWindow Window;
 extern int WINDOW_SIZE;
 extern int SQUARE_SIZE;
 
+/* Food.cpp Definitions */
+extern sf::RectangleShape CurrentFood;
+extern bool FoodSpawned;
+
 /* Globals */
 std::string GDirection = "N/A";
 
@@ -73,11 +77,31 @@ void Snake::Player::IncreaseScore()
     {
         this->Body.push_back(Snake::SnakeSegment(Body[Body.size()].getPosition() - DirectionToVector2f["RIGHT"]));
     }
-
+    FoodSpawned = false;
     this->Score++;
 }
 
 std::string Snake::Player::GetDirection()
 {
     return this->Direction;
+}
+
+std::vector<Snake::SnakeSegment> Snake::Player::GetBody()
+{
+    return this->Body;
+}
+
+bool Snake::Player::CheckCollision()
+{
+    sf::Vector2f HeadPos = this->Body[0].getPosition();
+    if (HeadPos == CurrentFood.getPosition())
+    {
+        this->IncreaseScore();
+        return false;
+    }
+    else if (HeadPos.x == WINDOW_SIZE || HeadPos.y == WINDOW_SIZE || HeadPos.x == -SQUARE_SIZE || HeadPos.y == -SQUARE_SIZE)
+    {
+        return true;
+    }
+    return false;
 }
