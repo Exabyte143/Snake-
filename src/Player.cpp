@@ -103,5 +103,20 @@ bool Snake::Player::CheckCollision()
     {
         return true;
     }
+    else
+    {
+        for (int i = 0; i < this->Body.size(); i++)
+        {
+            if (Body[i].getPosition() == Body[0].getPosition() && i > 0)
+            {
+                return true;
+            }
+        }
+    }
     return false;
+}
+
+int Snake::Player::GetScore()
+{
+    return Score;
 }

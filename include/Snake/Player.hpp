@@ -15,6 +15,7 @@ namespace Snake
         std::string GetDirection();
         std::vector<Snake::SnakeSegment> GetBody();
         bool CheckCollision();
+        int GetScore();
 
     private:
         int Score = 0;

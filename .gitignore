@@ -1,2 +1,4 @@
-bin/Debug
-bin/Release
+bin/Debug/*.lik
+bin/Debug/*.pdb
+bin/Release/*.exe
+bin/Debug/*.exe
