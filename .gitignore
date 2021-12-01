@@ -1,4 +1,4 @@
-bin/Debug/*.lik
+bin/Debug/*.ilk
 bin/Debug/*.pdb
 bin/Release/*.exe
 bin/Debug/*.exe
