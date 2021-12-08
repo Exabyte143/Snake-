@@ -13,7 +13,7 @@ bool IsGameEnded = false;
 sf::RenderWindow Window(sf::VideoMode(WINDOW_SIZE, WINDOW_SIZE), "Snake");
 Snake::Player player;
 
-int main()
+int WinMain()
 {
     /* Text */
     sf::Font Font;
