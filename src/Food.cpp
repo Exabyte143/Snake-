@@ -1,5 +1,5 @@
-#include <Snake/Food.hpp>
-#include <Snake/Player.hpp>
+#include "Snake/Food.hpp"
+#include "Snake/Player.hpp"
 #include <iostream>
 
 /* Definition in Main.cpp */

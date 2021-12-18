@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
-#include <Snake/Player.hpp>
-#include <Snake/Food.hpp>
-#include <Fonts/NotoSans-Regular.h>
+#include "Snake/Player.hpp"
+#include "Snake/Food.hpp"
+#include "Fonts/NotoSans-Regular.h"
 
 /* Defined in Player.cpp */
 extern std::string GDirection;

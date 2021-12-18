@@ -1,8 +1,8 @@
 #pragma once
 #include <vector>
-#include <Snake/SnakeSegment.hpp>
 #include <map>
 #include <SFML/Graphics.hpp>
+#include "Snake/SnakeSegment.hpp"
 
 namespace Snake
 {

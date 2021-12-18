@@ -1,5 +1,5 @@
-#include <Snake/Player.hpp>
-#include <Snake/SnakeSegment.hpp>
+#include "Snake/Player.hpp"
+#include "Snake/SnakeSegment.hpp"
 #include <map>
 
 /* Main.cpp Definitions */
