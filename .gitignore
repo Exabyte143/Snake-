@@ -1,4 +1,3 @@
-bin/Debug/*.ilk
-bin/Debug/*.pdb
-bin/Release/*.exe
-bin/Debug/*.exe
+/bin/
+build.bat
+/.vscode/

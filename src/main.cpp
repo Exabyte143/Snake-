@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
-#include <Snake/Player.hpp>
-#include <Snake/Food.hpp>
-#include <Fonts/NotoSans-Regular.h>
+#include "Snake/Player.hpp"
+#include "Snake/Food.hpp"
+#include "Fonts/NotoSans-Regular.h"
 
 /* Defined in Player.cpp */
 extern std::string GDirection;
@@ -13,7 +13,7 @@ bool IsGameEnded = false;
 sf::RenderWindow Window(sf::VideoMode(WINDOW_SIZE, WINDOW_SIZE), "Snake");
 Snake::Player player;
 
-int WinMain()
+int main()
 {
     /* Text */
     sf::Font Font;

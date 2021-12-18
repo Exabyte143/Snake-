@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include <Snake/SnakeSegment.hpp>
+#include "Snake/SnakeSegment.hpp"
 
 /* Main.cpp Definition */
 extern int SQUARE_SIZE;

@@ -1,5 +1,5 @@
-#include <Snake/Player.hpp>
-#include <Snake/SnakeSegment.hpp>
+#include "Snake/Player.hpp"
+#include "Snake/SnakeSegment.hpp"
 #include <map>
 
 /* Main.cpp Definitions */
@@ -33,7 +33,7 @@ void Snake::Player::Move()
     {
 
         this->Direction = GDirection;
-        for (int i = 0; i < this->Body.size(); i++)
+        for (int i = 0; i < (this->Body.size()); i++)
         {
             Body[i].PreviousPosition = Body[i].getPosition();
             if (i == 0)
@@ -51,10 +51,16 @@ void Snake::Player::Move()
 
 void Snake::Player::Draw()
 {
+    for (auto Segment : this->Body)
+    {
+        Window.draw(Segment);
+    }
+    /*
     for (int i = 0; i < this->Body.size(); i++)
     {
         Window.draw(this->Body[i]);
     }
+    */
 }
 
 void Snake::Player::IncreaseScore()
@@ -63,19 +69,19 @@ void Snake::Player::IncreaseScore()
 
     if (PositionDifference == this->DirectionToVector2f["UP"])
     {
-        this->Body.push_back(Snake::SnakeSegment(Body[Body.size()].getPosition() - DirectionToVector2f["UP"]));
+        this->Body.push_back(Snake::SnakeSegment(Body[Body.size() - 1].getPosition() - DirectionToVector2f["UP"]));
     }
     else if (PositionDifference == this->DirectionToVector2f["DOWN"])
     {
-        this->Body.push_back(Snake::SnakeSegment(Body[Body.size()].getPosition() - DirectionToVector2f["DOWN"]));
+        this->Body.push_back(Snake::SnakeSegment(Body[Body.size() - 1].getPosition() - DirectionToVector2f["DOWN"]));
     }
     else if (PositionDifference == this->DirectionToVector2f["LEFT"])
     {
-        this->Body.push_back(Snake::SnakeSegment(Body[Body.size()].getPosition() - DirectionToVector2f["LEFT"]));
+        this->Body.push_back(Snake::SnakeSegment(Body[Body.size() - 1].getPosition() - DirectionToVector2f["LEFT"]));
     }
     else if (PositionDifference == this->DirectionToVector2f["RIGHT"])
     {
-        this->Body.push_back(Snake::SnakeSegment(Body[Body.size()].getPosition() - DirectionToVector2f["RIGHT"]));
+        this->Body.push_back(Snake::SnakeSegment(Body[Body.size() - 1].getPosition() - DirectionToVector2f["RIGHT"]));
     }
     FoodSpawned = false;
     this->Score++;
@@ -105,14 +111,26 @@ bool Snake::Player::CheckCollision()
     }
     else
     {
-        for (int i = 0; i < this->Body.size(); i++)
+        int Index = 0;
+        for (auto Segment : this->Body)
         {
-            if (Body[i].getPosition() == Body[0].getPosition() && i > 0)
+            if (Segment.getPosition() == this->Body[0].getPosition() && Index > 0)
             {
                 return true;
             }
+            Index++;
         }
+        /*
+            for (int i = 0; i < this->Body.size(); i++)
+            {
+                if (Body[i].getPosition() == Body[0].getPosition() && i > 0)
+                {
+                    return true;
+                }
+            }
+            */
     }
+
     return false;
 }
 
