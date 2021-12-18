@@ -19,6 +19,15 @@ void Snake::Food::Spawn()
         std::vector<Snake::SnakeSegment> Body = player.GetBody();
         CurrentFood = sf::RectangleShape(sf::Vector2f(SQUARE_SIZE, SQUARE_SIZE));
         sf::Vector2f Coords = sf::Vector2f((rand() % WINDOW_SIZE / SQUARE_SIZE) * SQUARE_SIZE, (rand() % WINDOW_SIZE / SQUARE_SIZE) * SQUARE_SIZE);
+
+        for (auto Segment : Body)
+        {
+            if (Coords == Segment.getPosition())
+            {
+                return;
+            }
+        }
+        /*
         for (int i = 0; i < Body.size(); i++)
         {
             if (Coords == Body[i].getPosition())
@@ -26,6 +35,7 @@ void Snake::Food::Spawn()
                 return;
             }
         }
+        */
         CurrentFood.setPosition(Coords);
         CurrentFood.setFillColor(sf::Color::Red);
         FoodSpawned = true;

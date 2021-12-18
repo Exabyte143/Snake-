@@ -52,5 +52,6 @@
         "xutility": "cpp",
         "iostream": "cpp",
         "istream": "cpp"
-    }
+    },
+    "cmake.configureOnOpen": false
 }
