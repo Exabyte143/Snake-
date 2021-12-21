@@ -29,7 +29,7 @@ Snake::Player::Player()
 
 void Snake::Player::Move()
 {
-    if (this->Clock.getElapsedTime().asMilliseconds() > 250 && GDirection != "N/A")
+    if (this->Clock.getElapsedTime().asMilliseconds() > 125 && GDirection != "N/A")
     {
 
         this->Direction = GDirection;
