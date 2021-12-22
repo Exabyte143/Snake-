@@ -6,7 +6,8 @@ extern int SQUARE_SIZE;
 
 Snake::SnakeSegment::SnakeSegment(sf::Vector2f Position)
 {
-    this->setSize(sf::Vector2f(SQUARE_SIZE, SQUARE_SIZE));
+    this->setSize(sf::Vector2f(SQUARE_SIZE - 1, SQUARE_SIZE - 1));
+    this->setOrigin(-1, -1);
     this->setPosition(Position);
     this->setFillColor(sf::Color::Green);
 }
