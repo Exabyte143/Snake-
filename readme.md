@@ -1,9 +1,9 @@
 # Snake++
 
-Snake++ rewrite, I might make it work on linux in the future.
+Snake++ rewrite, it works on linux this time.
 
 ## Compiliation
-To compile you need [CMAKE](https://cmake.org/), and if you're on windows you can need [VCPKG](https://vcpkg.io/en/index.html) installed.
+To compile you need [CMAKE](https://cmake.org/), and if you're on windows you need [VCPKG](https://vcpkg.io/en/index.html) installed.
 
 
 ### If you're on Linux
